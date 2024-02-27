@@ -12,13 +12,17 @@
  * */
 
 #include <stdlib.h>
+
 #define MAX_TEMP 50
 #define MIN_TEMP -50
 #define DEF_SIZE 100
 
-
 static long int* vect;
 static long int size;
+static long int count;
+static long int sum;
+static long int min;
+static long int max;
 
 void dtInit() {
 	size = DEF_SIZE;
@@ -45,4 +49,28 @@ int* dtStat() {
 	return res;
 }
 
+
+int dtAdd(int value) {
+
+	if(size == count) {
+		vect = (int*) realloc(vect, size+10);
+	}
+
+	if(vect == 0) {
+		printf("Memory not reallocated.\n");
+		exit(0);
+	}
+
+	if(min > value) {
+		min = value;
+	}
+	if(max < value) {
+		max = value;
+	}
+
+	sum += value;
+	vect[count] = value;
+	count++;
+
+}
 

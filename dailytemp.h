@@ -25,8 +25,23 @@
 * \date 27/02/2024
 */
 void dtInit();
-int dtAdd(int value);
-int* dtStat() ;
+
+/**
+ * @brief Inserts a new value in the vector
+ * 
+ * If there is space for a new value and if not reallocates it with current size + 10.
+ * Also updates sum, min and max if necessary.
+ * 
+ * @code
+ * dtAdd(vect, 1);
+ * 
+ * @author Diogo Lapa
+ * @param[in] value Value being added to the vector.
+ * @return void
+*/
+void dtAdd(int value);
+
+int* dtStat(int* vect) ;
 
 #endif
 
