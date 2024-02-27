@@ -14,6 +14,8 @@
 #ifndef __DAILYTEMP_H__
 #define __DAILYTEMP_H__
 
+#include <stdio.h>
+#include <stdlib.h>
 
 /** \brief Creates the vector to hold the temperatures
 *
@@ -41,7 +43,7 @@ void dtInit();
 */
 void dtAdd(int value);
 
-int* dtStat(int* vect) ;
+int* dtStat(int* res) ;
 
 #endif
 

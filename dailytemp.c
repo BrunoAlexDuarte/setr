@@ -11,7 +11,7 @@
  *
  * */
 
-#include <stdlib.h>
+#include "dailytemp.h"
 
 #define MAX_TEMP 50
 #define MIN_TEMP -50
@@ -21,26 +21,26 @@ static long int* vect;
 static long int size;
 static long int count;
 static long int sum;
-static long int min;
-static long int max;
+static long int min_temp;
+static long int max_temp;
 
 void dtInit() {
 	size = DEF_SIZE;
 	count = 0;
 	sum = 0;
-	max = MIN_TEMP-1;
-	min = MAX_TEMP+1;
+	max_temp = MIN_TEMP-1;
+	min_temp = MAX_TEMP+1;
 	vect = (long int*) malloc(size*sizeof(long int));
 
-	if vect == 0 {
+	if (vect == 0) {
 		printf("Memory not allocated");
 		exit(0);
+	}
 }
 
 
-int* dtStat() {
+int* dtStat(int* res) {
 	
-	int res[3];
 	res[0] = max_temp;
 	res[1] = min_temp;
 	res[2] = sum / count;
@@ -49,10 +49,10 @@ int* dtStat() {
 }
 
 
-int dtAdd(int value) {
+void dtAdd(int value) {
 
 	if(size == count) {
-		vect = (int*) realloc(vect, size+10);
+		vect = (long int*) realloc(vect, size+10);
 	}
 
 	if(vect == 0) {
@@ -60,11 +60,11 @@ int dtAdd(int value) {
 		exit(0);
 	}
 
-	if(min > value) {
-		min = value;
+	if(min_temp > value) {
+		min_temp = value;
 	}
-	if(max < value) {
-		max = value;
+	if(max_temp < value) {
+		max_temp = value;
 	}
 
 	sum += value;
