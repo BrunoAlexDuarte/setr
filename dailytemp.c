@@ -35,7 +35,6 @@ void dtInit() {
 	if vect == 0 {
 		printf("Memory not allocated");
 		exit(0);
-	return vect;
 }
 
 
