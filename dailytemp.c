@@ -11,15 +11,17 @@
  *
  * */
 
+#include <stdlib.h>
 
+static long int* vect;
 
-int* dtInit() {
+void dtInit() {
+	long int* vect = (long int*) malloc(n*sizeof(long int));
 
-	vect	
-
-
-
-
+	if vect == 0 {
+		printf("Memory not allocated");
+		exit(0);
+	return vect;
 }
 
 
