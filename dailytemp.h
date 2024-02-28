@@ -29,21 +29,29 @@
 void dtInit();
 
 /**
- * @brief Inserts a new value in the vector
- * 
- * If there is space for a new value and if not reallocates it with current size + 10.
- * Also updates sum, min and max if necessary.
- * 
- * @code
- * dtAdd(vect, 1);
- * 
- * @author Diogo Lapa
- * @param[in] value Value being added to the vector.
- * @return void
+* \brief Returns the stats of the temperatures
+* 
+* Returns the maximin, minumu and average
+* 
+* 
+* \author Bruno
+* \param[out] res integer array with size 3
+*/
+
+int* dtStat(int* res) ;
+
+/**
+* \brief Inserts a new value in the array
+* 
+* If there is space for a new value and if not reallocates it with current size + 10.
+* Also updates sum, min and max if necessary.
+* 
+* \author Diogo Lapa
+* \param[in] value being added to the array.
+* \return void
 */
 void dtAdd(int value);
 
-int* dtStat(int* res) ;
 
 #endif
 
